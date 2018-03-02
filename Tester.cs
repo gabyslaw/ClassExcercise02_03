@@ -13,11 +13,9 @@ namespace ExtensionMethods.ClassExcercise02_03
             //sum of the prices
             var TotalPrice = InventoryManager.GetInventories().Sum(x => x.Price);
 
-            Console.WriteLine("..................................SkipWhile and TakeWhile......................................");
-            //SkipWhile and TakeWhile
-            var selection2 = InventoryManager.GetInventories()
-                .SkipWhile(n => n.Id > 5)
-                .TakeWhile(n => n.Id < 8);
+            Console.WriteLine("..................................SkipWhile......................................");
+            //SkipWhile
+            var selection2 = InventoryManager.GetInventories().SkipWhile(n => n.Id < 5);
 
             foreach (var item in selection2)
             {
@@ -25,6 +23,18 @@ namespace ExtensionMethods.ClassExcercise02_03
                 Console.WriteLine($"Your Product ID is: {item.Id} and the Name is: " +
                     $"{item.Name} with a price of {Total1} \n");  
             }
+
+            Console.WriteLine("..................................TakeWhile......................................");
+            //SkipWhile
+            var selection3 = InventoryManager.GetInventories().TakeWhile(n => n.Id < 8);
+
+            foreach (var item in selection3)
+            {
+                var Total0 = string.Format("{0:n0}", item.Price);
+                Console.WriteLine($"Your Product ID is: {item.Id} and the Name is: " +
+                    $"{item.Name} with a price of {Total0} \n");
+            }
+
             Console.WriteLine("..................................Order......................................");
 
             //Order by and Then by
